@@ -53,7 +53,7 @@ These solutions are my personal implementations of the exercises from the book.
 
 1. **Clone the Repository**:
     ```bash
-    git clone https://github.com/yourusername/python-programming-exercises-gently-explained-solutions.git
+    git clone https://github.com/fiddle-thomas/python-programming-exercises-gently-explained-solutions.git
     ```
 
 2. **Navigate to the solutions Folder**:
