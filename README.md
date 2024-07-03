@@ -56,7 +56,7 @@ These solutions are my personal implementations of the exercises from the book.
     git clone https://github.com/yourusername/python-programming-exercises-gently-explained-solutions.git
     ```
 
-2. **Navigate to the Chapter Folder**:
+2. **Navigate to the solutions Folder**:
     ```bash
     cd python-programming-exercises-gently-explained-solutions/solutions
     ```
