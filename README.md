@@ -49,31 +49,25 @@ These solutions are my personal implementations of the exercises from the book.
 41. [Exercise 41: ROT 13 Encryption](solutions/exercise_41_rot13_encryption.py)
 42. [Exercise 42: Bubble Sort](solutions/exercise_42_bubble_sort.py)
 
-## Getting Started
+## How to Use This Repository
 
-To get a local copy up and running follow these simple steps.
+1. **Clone the Repository**:
+    ```bash
+    git clone https://github.com/yourusername/python-programming-exercises-gently-explained-solutions.git
+    ```
 
-### Prerequisites
+2. **Navigate to the Chapter Folder**:
+    ```bash
+    cd python-programming-exercises-gently-explained-solutions/solutions
+    ```
 
-- Python 3.x
-- Git
+3. **Run the Projects**:
+    ```bash
+    python project_name.py
+    ```
 
-### Installation
+## License
 
-1. Clone the repo
-   ```sh
-   git clone https://github.com/your-username/python-programming-exercises-gently-explained-solutions.git
-   ```
-2. Navigate to the project directory
-   ```sh
-   cd python-programming-exercises-gently-explained-solutions
-   ```
-
-## Usage
-
-Each exercise is contained in its own Python file within the `solutions` folder. You can run an exercise using Python from the command line:
-   ```sh
-   python solutions/exercise_01_hello_world.py
-   ```
+This project is licensed under the CC0 1.0 Universal license. For more details, see the [LICENSE](LICENSE) file.
 
 ---
