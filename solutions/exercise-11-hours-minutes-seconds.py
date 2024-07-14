@@ -1,60 +1,41 @@
 def get_hours_minutes_seconds(total_seconds):
-    # Define constants for time conversions
+    # Constants for time unit conversions
     seconds_in_day = 86400
     seconds_in_hour = 3600
     seconds_in_min = 60
 
-    # Calculate days and update total_seconds
-    days = total_seconds // seconds_in_day
+    # List to store formatted time units
+    time = []
+
+    # Check and format days
     if total_seconds >= seconds_in_day:
-        total_seconds = total_seconds - seconds_in_day * days
-    
-    # Calculate hours and update total_seconds
-    hours = total_seconds // seconds_in_hour
+        time.append(f"{total_seconds // seconds_in_day}d")
+        total_seconds = total_seconds % seconds_in_day
+
+    # Check and format hours
     if total_seconds >= seconds_in_hour:
-        total_seconds = total_seconds - seconds_in_hour * hours
-    
-    # Calculate minutes and update total_seconds
-    minutes = total_seconds // seconds_in_min
+        time.append(f"{total_seconds // seconds_in_hour}h")
+        total_seconds = total_seconds % seconds_in_hour
+
+    # Check and format minutes
     if total_seconds >= seconds_in_min:
-        total_seconds = total_seconds - seconds_in_min * minutes
-    
-    # Remaining seconds
-    seconds = total_seconds 
-        
-    # Create a dictionary to store time units
-    time_dict = {
-        "d" : days,
-        "h" : hours,
-        "m" : minutes,
-        "s" : seconds
-    }
+        time.append(f"{total_seconds // seconds_in_min}m")
+        total_seconds = total_seconds % seconds_in_min
 
-    # List to store formatted time strings
-    time_string_parts = []
+    # Handle remaining seconds or the case when all larger units are zero
+    if not time or total_seconds > 0:
+        time.append(f"{total_seconds}s")
 
-    # Iterate through the time dictionary
-    for key, value in time_dict.items():
-        # Special case: if seconds is 0 and no other units, add '0s'
-        if key == "s" and value == 0 and not time_string_parts:
-            time_string_parts.append(f"{value}{key}")
-        # Skip if value is 0
-        elif value == 0:
-            continue
-        # Add formatted string for non-zero values
-        else:
-            time_string_parts.append(f"{value}{key}")
-    
-    # Join the formatted time strings
-    time_string = " ".join(time_string_parts)
-    return time_string  # Return the resulting time string
+    # Join the formatted time units into a single string
+    time_string = " ".join(time)
+    return time_string
 
-# Test cases
-assert get_hours_minutes_seconds(30)
-assert get_hours_minutes_seconds(60)
-assert get_hours_minutes_seconds(90)
-assert get_hours_minutes_seconds(3600)
-assert get_hours_minutes_seconds(3601)
-assert get_hours_minutes_seconds(3661)
-assert get_hours_minutes_seconds(90042)
-assert get_hours_minutes_seconds(0)
+# Assert statements to verify the function's correctness
+assert get_hours_minutes_seconds(30) == '30s'
+assert get_hours_minutes_seconds(60) == '1m'
+assert get_hours_minutes_seconds(90) == '1m 30s'
+assert get_hours_minutes_seconds(3600) == '1h'
+assert get_hours_minutes_seconds(3601) == '1h 1s'
+assert get_hours_minutes_seconds(3661) == '1h 1m 1s'
+assert get_hours_minutes_seconds(90042) == '1d 1h 42s'
+assert get_hours_minutes_seconds(0) == '0s'
