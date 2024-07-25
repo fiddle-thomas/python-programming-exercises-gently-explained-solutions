@@ -1,27 +1,29 @@
-# Loop from 99 to 1, representing the bottles of beer
-for previous_stock in range(99, 0, -1):
-    # Calculate the number of bottles after taking one down
-    current_stock = previous_stock - 1
+# Print the first verse outside the loop
+print("99 bottles of beer on the wall,")
+print("99 bottles of beer,")
 
-    # Handle singular/plural cases and the "No more bottles" case
-    if current_stock == 1:
-        previous_inventory = f"{previous_stock} bottles"
-        current_inventory = f"{current_stock} bottle"
-    elif current_stock == 0:
-        previous_inventory = f"{previous_stock} bottle"
-        current_inventory = "No more bottles"
+# Loop from 98 to 0, representing the decreasing number of bottles
+for num in range(98, -1, -1):
+    # Determine the correct phrase based on the number of bottles
+    if num > 1:
+        stock = f"{num} bottles"
+    elif num == 1:
+        stock = f"{num} bottle"
     else:
-        previous_inventory = f"{previous_stock} bottles"
-        current_inventory = f"{current_stock} bottles"
+        stock = "No more bottles"
+
+    # Print the middle part of each verse
+    print("Take one down,")      
+    print("Pass it around,")
+
+    # Break the loop after printing the last "Take one down, Pass it around"
+    if num == 0:
+        break
     
-    # Print the first part of the stanza      
-    print(f"{previous_inventory} of beer on the wall,")
-    print(f"{previous_inventory} of beer,")
-    print(f"Take one down,")      
-    print(f"Pass it around,")
-    
-    # Handle the last line differently for the final case
-    if current_stock == 0:
-        print(f"{current_inventory} of beer on the wall!")
-    else:
-        print(f"{current_inventory} of beer on the wall,\n")
+    # Print the end of the current verse and the start of the next
+    print(f"{stock} of beer on the wall,")
+    print(f"\n{stock} of beer on the wall,")
+    print(f"{stock} of beer,")
+
+# Print the final line
+print(f"{stock} of beer on the wall!")
